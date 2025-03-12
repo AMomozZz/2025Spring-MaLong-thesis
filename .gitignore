@@ -17,3 +17,4 @@ debug/
 #.idea/
 
 test_*/
+backup*
