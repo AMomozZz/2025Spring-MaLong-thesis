@@ -17,4 +17,4 @@ debug/
 #.idea/
 
 test_*/
-backup*
+**/backup*
