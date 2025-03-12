@@ -1,0 +1,14 @@
+[workspace]
+
+[package]
+name = "tcp-component"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio-util = { version = "0.7.13", features = ["codec"] }
+wasi = "0.14.2"
+wit-bindgen = "0.39.0"
+
+[lib]
+crate-type = ["cdylib"]

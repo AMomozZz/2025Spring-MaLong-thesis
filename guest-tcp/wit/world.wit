@@ -1,0 +1,29 @@
+package pkg:component;
+
+interface component-tcp {
+    resource component-ip-socket-address {
+        constructor(address: tuple<u8, u8, u8, u8>, port: u16);
+    }
+    resource component-pollable {
+        block: func();
+        ready: func() -> bool;
+    }
+    resource component-network {
+        constructor();
+    }
+    resource component-tcp-socket {
+        bind: func(network: borrow<component-network>, socket: component-ip-socket-address);
+        listen: func();
+        local-address: func() -> component-ip-socket-address;
+        is-listening: func() -> bool;
+        subscribe: func() -> component-pollable;
+    }
+
+    // get-handle-and-socket-tcp-ipv4: func(socket: component-ip-socket-address) -> tuple<component-pollable, component-tcp-socket>;
+
+    // bind-address-to-socket-tcp-ipv4: func(address: tuple<u8, u8, u8, u8>, port: u16, network: borrow<component-network>) -> tuple<component-tcp-socket, component-pollable>;
+}
+
+world component {
+    export component-tcp;
+}
