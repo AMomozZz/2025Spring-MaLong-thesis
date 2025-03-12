@@ -1,0 +1,13 @@
+[workspace]
+
+[package]
+name = "source"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "1.43.0", features = ["full"] }
+wasmtime = "30.0.2"
+tokio-util = { version = "0.7.13", features = ["codec"] }
+serde = { version = "1.0.218", features = ["derive"] }
+serde_json = "1.0.139"

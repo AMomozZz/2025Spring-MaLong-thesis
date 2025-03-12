@@ -1,0 +1,50 @@
+use std::{io::{Read, Write}, net::TcpListener, time::Duration};
+
+fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let listener = match TcpListener::bind("127.0.0.1:8100") {
+        Ok(listener) => listener,
+        Err(e) => {
+            eprintln!("Failed to bind to port 8100: {}", e);
+            return Err(Box::new(e));
+        }
+    };
+    println!("Server is listening on 127.0.0.1:8100");
+
+    loop {
+        let (mut socket, _addr) = listener.accept().unwrap();
+        println!("New connection established! {}", _addr.to_string());
+    
+        let mut buffer = Vec::new();
+
+        socket.set_read_timeout(Some(Duration::new(5, 0)))?;
+
+        loop {
+            let mut temp_buf = [0u8; 1024];
+            match socket.read(&mut temp_buf) {
+                Ok(0) => {
+                    println!("No more data received. Closing connection.");
+                    break;
+                }
+                Ok(n) => {
+                    println!("Received {} bytes.", n);
+                    buffer.extend_from_slice(&temp_buf[..n]);
+                }
+                Err(e) => {
+                    eprintln!("Failed to read from socket: {}", e);
+                    break;
+                }
+            }
+        }
+
+        println!("Full message received ({} bytes)", buffer.len());
+
+        let response = b"Message received!";
+        if let Err(e) = socket.write_all(response) {
+            eprintln!("Failed to send response: {}", e);
+        } else {
+            println!("Response sent to the client.");
+        }
+
+        println!("Connection closed.");
+    }
+}
