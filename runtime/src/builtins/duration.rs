@@ -84,11 +84,11 @@ impl Duration {
         self.0.whole_weeks()
     }
 
-    // pub(crate) fn to_std(self) -> std::time::Duration {
-    //     let whole_seconds = self.0.whole_seconds() as u64;
-    //     let subsec_nanos = self.0.subsec_nanoseconds() as u32;
-    //     std::time::Duration::new(whole_seconds, subsec_nanos)
-    // }
+    pub(crate) fn to_std(self) -> std::time::Duration {
+        let whole_seconds = self.0.whole_seconds() as u64;
+        let subsec_nanos = self.0.subsec_nanoseconds() as u32;
+        std::time::Duration::new(whole_seconds, subsec_nanos)
+    }
 }
 
 impl std::ops::Rem for Duration {

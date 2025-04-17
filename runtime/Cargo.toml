@@ -22,7 +22,7 @@ default = ["opt"]
 macros = { path = "../macros" }
 
 # rdkafka = { version = "0.36.2" }
-tokio = { version = "1.36.0", features = ["io-util", "rt", "macros"] }
+tokio = { version = "1.36.0", features = ["io-util", "rt", "macros", "time", "sync"] }
 tracing = { version = "0.1.40", default-features = false }
 num-integer = { version = "0.1.46", default-features = false }
 
