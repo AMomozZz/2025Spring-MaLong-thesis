@@ -18,3 +18,4 @@ debug/
 
 test_*/
 **/backup*
+nexmark-data/*

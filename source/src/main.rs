@@ -7,7 +7,7 @@ use serde::{Serialize, Deserialize};
 
 const GUEST_RS_WASI_MODULE: &[u8] = include_bytes!(concat!(
     env!("CARGO_MANIFEST_DIR"),
-    "/../guest-rs/target/wasm32-wasip2/release/component.wasm"
+    "/../guest-rs/target/wasm32-wasip2/release/componentcopy.wasm"
 ));
 
 #[derive(Serialize, Deserialize, Debug)]
