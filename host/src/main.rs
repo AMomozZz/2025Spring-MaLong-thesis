@@ -5,8 +5,8 @@ pub mod q4;
 pub mod q5;
 pub mod q6;
 pub mod q7;
-// pub mod q8;
-// pub mod qw;
+pub mod q8;
+pub mod qw;
 
 pub mod data;
 
@@ -49,20 +49,21 @@ fn main() {
         "q5" => timed(move |ctx| q5::run(stream(ctx, bids), ctx)),
         "q6" => timed(move |ctx| q6::run(stream(ctx, auctions), stream(ctx, bids), ctx)),
         "q7" => timed(move |ctx| q7::run(stream(ctx, bids), ctx)),
-        // "q8" => timed(move |ctx| q8::run(stream(ctx, auctions), stream(ctx, persons), ctx)),
-        // "qw" => {
-        //     let Some(size) = args.next() else {
-        //         println!("{USAGE} <size> <step>");
-        //         return;
-        //     };
-        //     let Some(step) = args.next() else {
-        //         println!("{USAGE} <size> <step>");
-        //         return;
-        //     };
-        //     let size = size.parse().unwrap();
-        //     let step = step.parse().unwrap();
-        //     timed(move |ctx| qw::run(stream(ctx, bids), size, step, ctx))
-        // },
+        "q8" => timed(move |ctx| q8::run(stream(ctx, auctions), stream(ctx, persons), ctx)),
+        "qw" => {
+            let Some(size) = args.next() else {
+                println!("{USAGE} <size> <step>");
+                return;
+            };
+            let Some(step) = args.next() else {
+                println!("{USAGE} <size> <step>");
+                return;
+            };
+            let size = size.parse().unwrap();
+            let step = step.parse().unwrap();
+            timed(move |ctx| qw::run(stream(ctx, bids), size, step, ctx))
+        },
+
         // Optimised
         "q1-opt" => timed(move |ctx| q1::run_opt(stream(ctx, bids), ctx)),
         "q2-opt" => timed(move |ctx| q2::run_opt(stream(ctx, bids), ctx)),
@@ -71,12 +72,17 @@ fn main() {
         "q5-opt" => timed(move |ctx| q5::run_opt(stream(ctx, bids), ctx)),
         "q6-opt" => timed(move |ctx| q6::run_opt(stream(ctx, auctions), stream(ctx, bids), ctx)),
         "q7-opt" => timed(move |ctx| q7::run_opt(stream(ctx, bids), ctx)),
-        // "q8-opt" => timed(move |ctx| q8::run_opt(stream(ctx, auctions), stream(ctx, persons), ctx)),
-        // "qw-opt" => {
-        //     let size = args.next().unwrap().parse().unwrap();
-        //     let step = args.next().unwrap().parse().unwrap();
-        //     timed(move |ctx| qw::run_opt(stream(ctx, bids), size, step, ctx))
-        // },
+        "q8-opt" => timed(move |ctx| q8::run_opt(stream(ctx, auctions), stream(ctx, persons), ctx)),
+        "qw-opt-pruned" => {
+            let size = args.next().unwrap().parse().unwrap();
+            let step = args.next().unwrap().parse().unwrap();
+            timed(move |ctx| qw::run_opt_pruned(stream(ctx, bids), size, step, ctx))
+        },
+        "qw-opt-operator" => {
+            let size = args.next().unwrap().parse().unwrap();
+            let step = args.next().unwrap().parse().unwrap();
+            timed(move |ctx| qw::run_opt_operator(stream(ctx, bids), size, step, ctx))
+        },
         
         "io" => {
             timed(move |ctx| {

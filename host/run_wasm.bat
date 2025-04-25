@@ -31,6 +31,13 @@ wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./ta
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid q7
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid q7-opt
 
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/auctionPerson q8
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/auctionPerson q8-opt
+
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid qw 10000 100
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid qw-opt-pruned 10000 100
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid qw-opt-operator 10000 100
+
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid io
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/auctionPerson io
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/auctionBid io
