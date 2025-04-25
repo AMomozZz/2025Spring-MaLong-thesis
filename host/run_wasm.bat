@@ -25,6 +25,12 @@ wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./ta
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid q5
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid q5-opt
 
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/auctionBid q6
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/auctionBid q6-opt
+
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid q7
+wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid q7-opt
+
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/bid io
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/auctionPerson io
 wasmtime -O opt-level=0 -S cli=y -S inherit-network=y --dir ../nexmark-data ./target/wasm32-wasip2/release/host.wasm ../nexmark-data/auctionBid io
