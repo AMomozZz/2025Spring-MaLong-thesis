@@ -97,6 +97,35 @@ fn main() {
                 }
             });
         },
+        "io-stream" => {
+            timed(move |ctx| {
+                if bids.is_ok() {
+                    let _a = stream(ctx, bids);
+                }
+                if persons.is_ok() {
+                    let _b = stream(ctx, persons);
+                }
+                if auctions.is_ok() {
+                    let _c = stream(ctx, auctions);
+                }
+            });
+        },
+        "io-stream-drain" => {
+            timed(move |ctx| {
+                if bids.is_ok() {
+                    let a = stream(ctx, bids);
+                    a.drain(ctx);
+                }
+                if persons.is_ok() {
+                    let b = stream(ctx, persons);
+                    b.drain(ctx);
+                }
+                if auctions.is_ok() {
+                    let c = stream(ctx, auctions);
+                    c.drain(ctx);
+                }
+            });
+        },
         _ => panic!("unknown query"),
     }
 }
