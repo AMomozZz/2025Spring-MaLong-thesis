@@ -1,8 +1,8 @@
 pub mod q1;
 pub mod q2;
 pub mod q3;
-// pub mod q4;
-// pub mod q5;
+pub mod q4;
+pub mod q5;
 // pub mod q6;
 // pub mod q7;
 // pub mod q8;
@@ -45,8 +45,8 @@ fn main() {
         "q1" => timed(move |ctx| q1::run(stream(ctx, bids), ctx)),
         "q2" => timed(move |ctx| q2::run(stream(ctx, bids), ctx)),
         "q3" => timed(move |ctx| q3::run(stream(ctx, auctions), stream(ctx, persons), ctx)),
-        // "q4" => timed(move |ctx| q4::run(stream(ctx, auctions), stream(ctx, bids), ctx)),
-        // "q5" => timed(move |ctx| q5::run(stream(ctx, bids), ctx)),
+        "q4" => timed(move |ctx| q4::run(stream(ctx, auctions), stream(ctx, bids), ctx)),
+        "q5" => timed(move |ctx| q5::run(stream(ctx, bids), ctx)),
         // "q6" => timed(move |ctx| q6::run(stream(ctx, auctions), stream(ctx, bids), ctx)),
         // "q7" => timed(move |ctx| q7::run(stream(ctx, bids), ctx)),
         // "q8" => timed(move |ctx| q8::run(stream(ctx, auctions), stream(ctx, persons), ctx)),
@@ -67,8 +67,8 @@ fn main() {
         "q1-opt" => timed(move |ctx| q1::run_opt(stream(ctx, bids), ctx)),
         "q2-opt" => timed(move |ctx| q2::run_opt(stream(ctx, bids), ctx)),
         "q3-opt" => timed(move |ctx| q3::run_opt(stream(ctx, auctions), stream(ctx, persons), ctx)),
-        // "q4-opt" => timed(move |ctx| q4::run_opt(stream(ctx, auctions), stream(ctx, bids), ctx)),
-        // "q5-opt" => timed(move |ctx| q5::run_opt(stream(ctx, bids), ctx)),
+        "q4-opt" => timed(move |ctx| q4::run_opt(stream(ctx, auctions), stream(ctx, bids), ctx)),
+        "q5-opt" => timed(move |ctx| q5::run_opt(stream(ctx, bids), ctx)),
         // "q6-opt" => timed(move |ctx| q6::run_opt(stream(ctx, auctions), stream(ctx, bids), ctx)),
         // "q7-opt" => timed(move |ctx| q7::run_opt(stream(ctx, bids), ctx)),
         // "q8-opt" => timed(move |ctx| q8::run_opt(stream(ctx, auctions), stream(ctx, persons), ctx)),
